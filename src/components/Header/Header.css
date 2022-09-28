@@ -1,0 +1,22 @@
+.header-design
+{
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+.header-design img
+{
+  margin-left: 20px;
+  padding: 6px;
+}
+.nav-design a
+{
+  text-decoration: none;
+  color: white;
+  margin-left: 15px;
+  font-size: small;
+  margin-right: 20px;
+}
