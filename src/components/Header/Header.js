@@ -6,10 +6,10 @@ const Header = () => {
     <div className='header-design'>
       <img  src={logo} alt="" />
       <div className='nav-design'>
-        <a href="#">Order</a>
-        <a href="#">Order Review</a>
-        <a href="#">Manage Inventory</a>
-        <a href="#">Login</a>
+        <a href="/order">Order</a>
+        <a href="/order review">Order Review</a>
+        <a href="/inventory">Manage Inventory</a>
+        <a href="/login">Login</a>
         
       </div>
     </div>
@@ -17,3 +17,4 @@ const Header = () => {
 };
 
 export default Header;
+
