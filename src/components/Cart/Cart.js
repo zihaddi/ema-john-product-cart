@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cart.css'
-const Cart = ({cart}) => {
- console.log(cart)
+const Cart = ({cart,loadRefreshCart}) => {
+ //console.log(cart)
  let quantity = 0
  let total = 0;
  let shipping = 0
@@ -21,6 +21,7 @@ const Cart = ({cart}) => {
       <p>Shipping = ${shipping}</p>
       <p>Tax = ${tax.toFixed(2)}</p>
       <p>Grandtotal = ${grandTotal.toFixed(2)}</p>
+      <button onClick={loadRefreshCart} className='btn-designn'>Refresh Cart</button>
     </div>
   );
 };

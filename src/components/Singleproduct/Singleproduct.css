@@ -29,7 +29,7 @@
 .btn-design
 {
   width: 100%;
-  background-color: #FFE0B3;
+  background-color:  orange;
   border-radius: 0 0 10px 10px;
   border: none;
   padding: 10px;
@@ -41,7 +41,7 @@
 
 .btn-design:hover
 {
-  background-color: orange;
+  background-color: orangered;
 }
 
 .btn-design:active
