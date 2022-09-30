@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Singleproduct from '../Singleproduct/Singleproduct';
 import './Shop.css'
@@ -12,12 +13,60 @@ const Shop = () => {
     .then(res => res.json())
     .then(data => setProducts(data))
   },[])
+
+  useEffect(()=>{
+    let dbCart = localStorage.getItem('shopping-cart')
+    if(dbCart)
+    {
+      let objectaCart = JSON.parse(dbCart)
+      let cartItem = []
+      for(const key in objectaCart)
+      {
+       let pro = products.find(p => p.id === key)
+      //console.log(pro)
+      if(pro)
+      {
+       pro['quantity'] = objectaCart[key]
+       cartItem.push(pro)
+       console.log(products)
+      }  
+      }
+      setCart(cartItem)
+    }
+    else
+    {
+
+    }
+   
+  },[products])
+  
   
   const onLoadAddToCart = (product) =>
   {
-     const newProduct = [...cart,product]
-     setCart(newProduct)
+      const newProduct = [...cart,product]
+      setCart(newProduct)
+      addToDb(product.id)
+      let dbCart = localStorage.getItem('shopping-cart')
+    if(dbCart)
+    {
+      let objectaCart = JSON.parse(dbCart)
+      let cartItem = []
+      for(const key in objectaCart)
+      {
+       let pro = products.find(p => p.id === key)
+      //console.log(pro)
+      if(pro)
+      {
+       pro['quantity'] = objectaCart[key]
+       cartItem.push(pro)
+       console.log(products)
+      }  
+      }
+      setCart(cartItem)
+    }
   }
+
+  
 
   return (
     <div className='shop-conatiner'>
@@ -34,9 +83,9 @@ const Shop = () => {
       </div>
       <div className='cart-container'>
         
-          {
-             <Cart key ={cart.id}  cart = {cart}></Cart>
-          }
+         {
+           <Cart  cart = {cart}></Cart>
+         }
       </div>
     </div>
   );
